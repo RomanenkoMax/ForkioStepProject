@@ -6,21 +6,53 @@ const uglify = require("gulp-uglify-es").default;
 const sourcemaps = require("gulp-sourcemaps");
 const rename = require("gulp-rename");
 const clean = require("gulp-clean");
+const cleanCSS = require("gulp-clean-css");
 const imagemin = require('gulp-imagemin');
 const pngquant = require('imagemin-pngquant');
 const gulpSequence = require('gulp-sequence');
+const autoprefixer = require('gulp-autoprefixer');
 
-gulp.task("scss", function() {
+gulp.task('clean-css', ()=> {
+    return gulp.src('./src/css/', {read: false})
+        .pipe(clean());
+});
+
+gulp.task("scss", ['clean-css'], function() {
     return gulp
         .src("./src/scss/*.scss")
         .pipe(sourcemaps.init())
         .pipe(sass().on("error", sass.logError))
         .pipe(sourcemaps.write())
-        .pipe(concat('style.css'))
-        .pipe(gulp.dest("./build/css/"));
+        .pipe(gulp.dest("./src/css/"));
 });
 
-gulp.task("srv", ["scss","uglify",'img'], function() {
+gulp.task('autoprefix', ['scss'], function() {
+    return gulp.src('./src/css/**/*.css')
+        .pipe(autoprefixer({
+            browsers: ['last 2 versions'],
+            cascade: false
+        }))
+        .pipe(gulp.dest('./src/css/'))
+});
+
+gulp.task('concat-css', ['autoprefix'], ()=>{
+    return gulp.src('./src/css/**/*.css')
+        .pipe(concat('style.css'))
+        .pipe(gulp.dest('./src/css/'));
+});
+
+gulp.task('minify-css', ['concat-css'], ()=>{
+    return gulp.src('./src/css/style.css')
+        .pipe(cleanCSS({compatibility: 'ie8'}))
+        .pipe(gulp.dest('./src/css/'));
+});
+
+gulp.task('copy-css', ['minify-css'], () => {
+    return gulp.src('./src/css/style.css')
+        .pipe(gulp.dest('./build/css/'))
+});
+
+gulp.task("srv", ["copy-css","uglify",'img'], function() {
     browserSync.init({
         server: "./"
     });
