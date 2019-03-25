@@ -1,0 +1,18 @@
+$violet-color: #8d81ac;
+$font-lato: 'Lato', sans-serif;
+$font-montserrat: 'Montserrat', sans-serif;
+
+@import "_reset";
+@import "_btn-small";
+
+.header {
+  
+  margin: 0 auto;
+  
+  .container {
+    padding: 0 10px;
+    min-width: 320px;
+    height: 100px;
+    background-color: #27262a;
+  }
+}
