@@ -2,17 +2,51 @@ $violet-color: #8d81ac;
 $font-lato: 'Lato', sans-serif;
 $font-montserrat: 'Montserrat', sans-serif;
 
-@import "_reset";
-@import "_btn-small";
+@import "btn-small";
 
 .header {
   
   margin: 0 auto;
+
+
   
   .container {
-    padding: 0 10px;
     min-width: 320px;
+    width: 100%;
     height: 100px;
     background-color: #27262a;
+
+    .header__content {
+      padding: 0 10px;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: flex-start;
+      height: 100%;
+      overflow: hidden;
+    }
+    a {
+
+      .logo__logo-img {
+        display: inline-block;
+        margin-left: 16px;
+      }
+
+      h2 {
+        display: none;
+      }
+    }
+    .header__flex-wrapper {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+
+      .header__burger-menu {
+        display: inline-block;
+      }
+      .menu {
+        display: inline-block;
+      }
+    }
   }
 }

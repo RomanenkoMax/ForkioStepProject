@@ -17,6 +17,17 @@ gulp.task('clean-css', ()=> {
         .pipe(clean());
 });
 
+// gulp.task('scss',['clean-css'], ()=> {
+//     return gulp.src('./src/scss/**/*.scss')
+//         .pipe(sass())
+//         .on('error', function (err) {
+//             console.log(err.toString());
+//             this.emit('end');
+//         })
+//         .pipe(gulp.dest('./src/css/'));
+// });
+
+
 gulp.task("scss", ['clean-css'], function() {
     return gulp
         .src("./src/scss/*.scss")
@@ -26,22 +37,22 @@ gulp.task("scss", ['clean-css'], function() {
         .pipe(gulp.dest("./src/css/"));
 });
 
-gulp.task('autoprefix', ['scss'], function() {
-    return gulp.src('./src/css/**/*.css')
-        .pipe(autoprefixer({
-            browsers: ['last 2 versions'],
-            cascade: false
-        }))
-        .pipe(gulp.dest('./src/css/'))
-});
+// gulp.task('autoprefix', ['scss'], function() {
+//     return gulp.src('./src/css/**/*.css')
+//         .pipe(autoprefixer({
+//             browsers: ['last 2 versions'],
+//             cascade: false
+//         }))
+//         .pipe(gulp.dest('./src/css/'))
+// });
 
-gulp.task('concat-css', ['autoprefix'], ()=>{
-    return gulp.src('./src/css/**/*.css')
-        .pipe(concat('style.css'))
-        .pipe(gulp.dest('./src/css/'));
-});
+// gulp.task('concat-css', ['scss'], ()=>{
+//     return gulp.src('./src/css/**/*.css')
+//         .pipe(concat('style.css'))
+//         .pipe(gulp.dest('./src/css/'));
+// });
 
-gulp.task('minify-css', ['concat-css'], ()=>{
+gulp.task('minify-css', ['scss'], ()=>{
     return gulp.src('./src/css/style.css')
         .pipe(cleanCSS({compatibility: 'ie8'}))
         .pipe(gulp.dest('./src/css/'));
@@ -70,7 +81,7 @@ gulp.task("concat", function() {
 });
 
 gulp.task('clean', function () {
-    return gulp.src('./build/', {read: false})
+    return gulp.src('./build/css/', {read: false})
         .pipe(clean());
 });
 
@@ -82,7 +93,7 @@ gulp.task("uglify", ['concat'], function () {
 });
 
 gulp.task('img', function() {
-    return gulp.src('./src/imgs/*.*')
+    return gulp.src('./src/img/*.*')
         .pipe(imagemin({
                 interlaced: true,
                 progressive: true,
@@ -90,11 +101,12 @@ gulp.task('img', function() {
                 use: [pngquant()]
             })
         )
-        .pipe(gulp.dest('./build/imgs'));
+        .pipe(gulp.dest('./build/img'));
 });
 
 gulp.task('dev', gulpSequence('clean', 'srv'));
 
-gulp.task('build', gulpSequence('clean',["scss", "uglify", 'img']) );
+// gulp.task('build', gulpSequence('clean',["copy-css", "uglify", 'img']) );
+gulp.task('build', gulpSequence('clean',["copy-css"]) );
 
 gulp.task("default", ["dev"]);
