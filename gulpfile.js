@@ -46,13 +46,13 @@ gulp.task("scss", ['clean-css'], function() {
 //         .pipe(gulp.dest('./src/css/'))
 // });
 
-// gulp.task('concat-css', ['scss'], ()=>{
-//     return gulp.src('./src/css/**/*.css')
-//         .pipe(concat('style.css'))
-//         .pipe(gulp.dest('./src/css/'));
-// });
+gulp.task('concat-css', ['scss'], ()=>{
+    return gulp.src('./src/css/**/*.css')
+        .pipe(concat('style.css'))
+        .pipe(gulp.dest('./src/css/'));
+});
 
-gulp.task('minify-css', ['scss'], ()=>{
+gulp.task('minify-css', ['concat-css'], ()=>{
     return gulp.src('./src/css/style.css')
         .pipe(cleanCSS({compatibility: 'ie8'}))
         .pipe(gulp.dest('./src/css/'));
@@ -63,18 +63,18 @@ gulp.task('copy-css', ['minify-css'], () => {
         .pipe(gulp.dest('./build/css/'))
 });
 
-gulp.task("srv", ["copy-css","uglify",'img'], function() {
+gulp.task("srv", ["copy-css","js",'img'], function() {
     browserSync.init({
         server: "./"
     });
 
-    gulp.watch("./src/scss/*.scss", ["scss"]).on("change", browserSync.reload);
+    gulp.watch("./src/scss/*.scss", ["copy-css"]).on("change", browserSync.reload);
     gulp.watch("./src/img/*.*", ["img"]).on("change", browserSync.reload);
     gulp.watch("./src/js/*.*", ["js"]).on("change", browserSync.reload);
     gulp.watch("./index.html").on("change", browserSync.reload);
 });
 
-gulp.task("concat", function() {
+gulp.task("concat", ['clean-js'], function() {
     return gulp.src('./src/js/*.js')
         .pipe(concat('build.js'))
         .pipe(gulp.dest('./build/js'));
@@ -85,7 +85,12 @@ gulp.task('clean', function () {
         .pipe(clean());
 });
 
-gulp.task("uglify", ['concat'], function () {
+gulp.task('clean-js', function () {
+    return gulp.src('./build/js/', {read: false})
+        .pipe(clean());
+});
+
+gulp.task("js", ['concat'], function () {
     return gulp.src("./build/js/build.js")
         .pipe(uglify())
         .pipe(rename('build.min.js'))
@@ -106,7 +111,7 @@ gulp.task('img', function() {
 
 gulp.task('dev', gulpSequence('clean', 'srv'));
 
-// gulp.task('build', gulpSequence('clean',["copy-css", "uglify", 'img']) );
-gulp.task('build', gulpSequence('clean',["copy-css"]) );
+gulp.task('build', gulpSequence('clean',["copy-css", "uglify", 'img']) );
+// gulp.task('build', gulpSequence('clean',["copy-css"]) );
 
 gulp.task("default", ["dev"]);
