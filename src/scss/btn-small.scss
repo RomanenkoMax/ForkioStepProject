@@ -16,6 +16,12 @@ a {
   font-size: 16px;
   box-sizing: border-box;
   margin: 0 auto;
+  border: 1px solid transparent;
+}
+.btn:hover {
+  border: 1px solid $violet-color;
+  background-color: white;
+  color: $violet-color;
 }
 
 .btn_violet {
@@ -26,6 +32,15 @@ a {
   min-width: 120px;
   height: 37px;
   padding: 0;
-  //margin: 0 auto;
+
+}
+
+@media screen and (min-width: 481px){
+  .btn {
+    margin: 0;
+  }
+  .header__btn {
+    margin-right: 10px;
+  }
 
 }

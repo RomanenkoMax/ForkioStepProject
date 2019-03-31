@@ -3,6 +3,10 @@ $font-lato: 'Lato', sans-serif;
 $font-montserrat: 'Montserrat', sans-serif;
 $back-menu-color: #333333;
 
+a {
+  text-decoration: none;
+}
+
 .menu {
   position: fixed;
   right: -100vw;
@@ -18,6 +22,7 @@ $back-menu-color: #333333;
     border-bottom: 2px solid white;
     line-height: 100px;
     min-width: 320px;
+
     a {
       padding-left: 33px;
       display: block;
@@ -30,13 +35,15 @@ $back-menu-color: #333333;
 
 
     }
+
+
   }
 
-  .selected {
+  a:hover {
     color: $violet-color;
   }
 
-  .selected:before {
+  a:hover::before {
     content: '';
     display: inline-block;
     width: 5px;
@@ -47,6 +54,64 @@ $back-menu-color: #333333;
     top: 20px;
   }
 }
+
 .move {
   right: 0;
+}
+
+@media screen and (min-width: 481px) {
+
+  .menu {
+    display: none;
+  }
+
+}
+
+@media screen and (min-width: 993px){
+
+  ul.menu>.menu__item:nth-of-type(1) {
+    display: none;
+  }
+
+  .menu {
+    display: flex;
+    position: relative;
+    right: 0;
+    top: 0;
+    justify-content: space-between;
+    width: 550px;
+    text-align: center;
+
+
+    &__item {
+      width: 120px;
+      height: 20px;
+      background-color: #27262a;
+      border: none;
+      min-width: 0;
+      line-height: 20px;
+
+      a {
+        padding-left: 0;
+        display: inline-block;
+        width: 100%;
+        height: 100%;
+        color: $violet-color;
+        box-sizing: border-box;
+        font-family: $font-montserrat;
+        font-size: 16px;
+        font-weight: bold;
+      }
+
+    }
+
+    a:hover {
+      color: white;
+    }
+
+    a:hover::before {
+      content: none;
+    }
+
+  }
 }

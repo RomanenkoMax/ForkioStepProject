@@ -1,0 +1,46 @@
+$violet-color: #8d81ac;
+$font-lato: 'Lato', sans-serif;
+$font-montserrat: 'Montserrat', sans-serif;
+
+.menu_responsive {
+  display: none;
+}
+
+@media screen and (min-width: 481px) {
+
+  .menu_responsive {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-evenly;
+    height: 32px;
+    background-color: #27262a;
+    position: relative;
+    bottom: 16px;
+
+    &__item {
+      display: inline-block;
+      text-align: center;
+      width: fit-content;
+
+      a {
+        font-size: 16px;
+        color: $violet-color;
+        font-weight: bold;
+        font-family: $font-montserrat;
+      }
+
+      a:hover {
+        color: white;
+      }
+
+    }
+  }
+}
+
+@media screen and (min-width: 993px){
+  .menu_responsive {
+    display: none;
+  }
+}
+
+
