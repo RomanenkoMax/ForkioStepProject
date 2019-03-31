@@ -111,7 +111,7 @@ gulp.task('img', function() {
 
 gulp.task('dev', gulpSequence('clean', 'srv'));
 
-gulp.task('build', gulpSequence('clean',["copy-css", "uglify", 'img']) );
+gulp.task('build', gulpSequence('clean',["copy-css", "js", 'img']) );
 // gulp.task('build', gulpSequence('clean',["copy-css"]) );
 
 gulp.task("default", ["dev"]);

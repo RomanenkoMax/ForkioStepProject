@@ -3,7 +3,75 @@ $font-lato: 'Lato', sans-serif;
 $font-montserrat: 'Montserrat', sans-serif;
 
 .about-us {
+  margin: 0 auto;
+  min-width: 320px;
+  width: 100vw;
+  height: 100%;
+  position: relative;
+
   .container {
-    max-width: 320px;
+    margin: 0 auto;
+    width: 100%;
+    height: 650px;
+    box-sizing: border-box;
+    padding: 0 10px;
+    background-image: url("/build/img/about-us.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+    max-width: 1200px;
+  }
+
+  .about-us__content {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+  }
+
+  .about-us__title {
+
+    font-family: $font-montserrat;
+    font-size: 46px;
+    font-weight: bold;
+    color: white;
+    padding-top: 45px;
+  }
+  .about-us__slogan {
+    text-align: center;
+    font-family: $font-montserrat;
+    font-size: 18px;
+    color: $violet-color;
+    padding-top: 20px;
+    line-height: 36px;
+  }
+
+  .about-us__small-info {
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 14px;
+    color: #6a727a;
+    padding-top: 20px;
+  }
+  .btn_download {
+    min-width: 290px;
+    height: 45px;
+    line-height: 45px;
+    font-size: 18px;
+
+  }
+  .b-download-btn {
+    position: absolute;
+    bottom: -53px;
+  }
+  .b-download-btn__info {
+    text-align: center;
+    font-size: 18px;
+    font-family: $font-montserrat;
+    color: rgba(132, 142, 151, 255);
+    padding-top: 12px;
   }
 }
+
