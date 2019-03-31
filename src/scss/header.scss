@@ -6,25 +6,25 @@ $font-montserrat: 'Montserrat', sans-serif;
 @import "btn-small";
 @import "burger-menu-button";
 @import "burger-menu-content";
+@import "responsive_menu_content";
 
 
 .header {
-
   margin: 0 auto;
   min-width: 320px;
   width: 100vw;
 
-
   .container {
+    margin: 0 auto;
     width: 100%;
     box-sizing: border-box;
     padding: 0 10px;
     height: 100px;
     background-color: #27262a;
+    max-width: 1200px;
   }
 
   &__content {
-
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -46,9 +46,9 @@ $font-montserrat: 'Montserrat', sans-serif;
     display: inline-block;
   }
 
-  //.menu {
-  //  display: inline-block;
-  //}
+  &__burger-menu:hover + .menu {
+    right: 0;
+  }
 
   .logo__logo-img {
     width: 43px;
@@ -56,7 +56,8 @@ $font-montserrat: 'Montserrat', sans-serif;
     background-image: url("/build/img/shape_1.png");
     margin-left: 15px;
   }
-  .logo__logo-img:hover{
+
+  .logo__logo-img:hover {
     background-image: url("/build/img/shape_1_hover.png");
   }
 
@@ -73,6 +74,7 @@ $font-montserrat: 'Montserrat', sans-serif;
     color: white;
   }
 
+
   @media screen and (min-width: 401px) {
 
     .logo__text {
@@ -85,7 +87,7 @@ $font-montserrat: 'Montserrat', sans-serif;
     }
   }
 
-  @media screen and (min-width: 481px){
+  @media screen and (min-width: 481px) {
 
     &__burger-menu {
       display: none;
