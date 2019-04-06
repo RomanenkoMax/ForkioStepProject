@@ -12,10 +12,10 @@ $font-montserrat: 'Montserrat', sans-serif;
     display: flex;
     flex-wrap: nowrap;
     justify-content: space-evenly;
-    height: 32px;
+    height: 100%;
     background-color: #27262a;
-    position: relative;
-    bottom: 16px;
+    align-items: flex-start;
+    padding-bottom: 16px;
 
     &__item {
       display: inline-block;

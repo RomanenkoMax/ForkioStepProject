@@ -5,7 +5,7 @@ $font-montserrat: 'Montserrat', sans-serif;
 .about-us {
   margin: 0 auto;
   min-width: 320px;
-  width: 100vw;
+  width: 100%;
   height: 100%;
   position: relative;
 
@@ -46,6 +46,7 @@ $font-montserrat: 'Montserrat', sans-serif;
     color: $violet-color;
     padding-top: 20px;
     line-height: 36px;
+    width: 256px;
   }
 
   .about-us__small-info {
@@ -73,5 +74,76 @@ $font-montserrat: 'Montserrat', sans-serif;
     color: rgba(132, 142, 151, 255);
     padding-top: 12px;
   }
-}
+  @media screen and (min-width: 401px){
+      .about-us__title {
+          font-size: 52px;
+          padding-top: 100px;
+        }
+        .about-us__slogan {
+            width: 376px;
+            font-size: 20px;
+          }
 
+        .about-us__small-info {
+              font-size: 16px;
+              padding-top: 24px;
+         }
+
+          .btn_download {
+            min-width: 390px;
+            height: 62px;
+            line-height: 62px;
+            font-size: 20px;
+
+          }
+          .b-download-btn {
+              bottom: -68px;
+          }
+          .btn {
+            border-radius: 30px;
+          }
+          .b-download-btn__info {
+                padding-top: 19px;
+          }
+  }
+  @media screen and (min-width: 481px){
+        .about-us__title {
+            font-size: 70px;
+            padding-top: 50px;
+          }
+          .about-us__slogan {
+              min-width: 470px;
+              width: 100%;
+              font-size: 22px;
+              padding-top: 26px;
+            }
+
+          .about-us__small-info {
+                font-size: 15px;
+                padding-top: 20px;
+           }
+    }
+
+    @media screen and (min-width: 993px){
+            .about-us__title {
+                font-size: 80px;
+                padding-top: 60px;
+              }
+              .about-us__slogan {
+                  min-width: 470px;
+                  width: 100%;
+                  font-size: 28px;
+                  padding-top: 18px;
+                }
+
+              .about-us__small-info {
+                    font-size: 15px;
+                    padding-top: 18px;
+               }
+
+                 .b-download-btn__info {
+                 padding-top: 14px;
+              }
+        }
+
+}
