@@ -1,0 +1,87 @@
+$violet-about-product: #635c73;
+$gray-about-product: #5b5b5b;
+$font-lato: 'Lato', sans-serif;
+$font-montserrat: 'Montserrat', sans-serif;
+
+.about-product {
+      margin: 0 auto;
+      min-width: 320px;
+      width: 100%;
+      height: 100%;
+
+      .container {
+            margin: 0 auto;
+            width: 100%;
+            box-sizing: border-box;
+            padding: 0 10px;
+      }
+
+      &__content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+      }
+
+      .section-title {
+        text-align: center;
+
+        &__heading {
+            padding-top: 110px;
+            text-transform: uppercase;
+            font-family: $font-montserrat;
+            font-size: 26px;
+            font-weight: bold;
+            color: $violet-about-product;
+            line-height: 1.5em;
+        }
+
+        &__description {
+            padding-top: 15px;
+            font-family: $font-lato;
+            font-size: 14px;
+            color: $gray-about-product;
+         }
+      }
+
+    .github-links {
+
+        font-size: 16px;
+        font-weight: bold;
+        width: 252px;
+        display:flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+
+
+
+       &__item {
+        border: 1px solid gray;
+        font-family: $font-lato;
+        width: 117px;
+        height: 26px;
+        //display: table-cell;
+        //vertical-align: middle;
+
+
+        a {
+        color: black;
+
+        }
+
+       }
+
+       &__action {
+        border-right: 1px solid gray;
+        background-color: #f2f2f2;
+        display: inline-block;
+        height: 100%;
+        line-height: 26px;
+        width: 70px;
+        text-align:center;
+       }
+
+
+    }
+}
