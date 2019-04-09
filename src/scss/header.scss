@@ -96,7 +96,7 @@ $font-montserrat: 'Montserrat', sans-serif;
 
     &__flex-wrapper {
       flex-direction: row-reverse;
-      justify-content: start;
+      justify-content: flex-start;
     }
 
     .logo__logo-img {

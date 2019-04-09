@@ -4,84 +4,165 @@ $font-lato: 'Lato', sans-serif;
 $font-montserrat: 'Montserrat', sans-serif;
 
 .about-product {
+  margin: 0 auto;
+  min-width: 320px;
+  width: 100%;
+  height: 100%;
+
+  .container {
+    margin: 0 auto;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0 10px;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .section-title {
+    text-align: center;
+
+    &__heading {
+      padding-top: 110px;
+      text-transform: uppercase;
+      font-family: $font-montserrat;
+      font-size: 26px;
+      font-weight: bold;
+      color: $violet-about-product;
+      line-height: 1.5em;
+      width: 236px;
       margin: 0 auto;
-      min-width: 320px;
-      width: 100%;
-      height: 100%;
+    }
 
-      .container {
-            margin: 0 auto;
-            width: 100%;
-            box-sizing: border-box;
-            padding: 0 10px;
-      }
+    &__description {
+      padding-top: 24px;
+      font-family: $font-lato;
+      font-size: 14px;
+      color: $gray-about-product;
+    }
+  }
 
-      &__content {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-      }
-
-      .section-title {
-        text-align: center;
-
-        &__heading {
-            padding-top: 110px;
-            text-transform: uppercase;
-            font-family: $font-montserrat;
-            font-size: 26px;
-            font-weight: bold;
-            color: $violet-about-product;
-            line-height: 1.5em;
-        }
-
-        &__description {
-            padding-top: 15px;
-            font-family: $font-lato;
-            font-size: 14px;
-            color: $gray-about-product;
-         }
-      }
-
-    .github-links {
-
-        font-size: 16px;
-        font-weight: bold;
-        width: 252px;
-        display:flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: space-between;
-        align-items: center;
+  .github-links {
+    padding-top: 9px;
+    padding-bottom: 88px;
+    font-size: 14px;
+    font-weight: bold;
+    width: 252px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
 
 
+    &__item {
+      border: 1px solid gray;
+      font-family: $font-lato;
+      width: 119px;
+      height: 26px;
+      margin-top: 20px;
 
-       &__item {
-        border: 1px solid gray;
-        font-family: $font-lato;
-        width: 117px;
-        height: 26px;
-        //display: table-cell;
-        //vertical-align: middle;
-
-
-        a {
+      a {
         color: black;
-
-        }
-
-       }
-
-       &__action {
-        border-right: 1px solid gray;
-        background-color: #f2f2f2;
-        display: inline-block;
-        height: 100%;
-        line-height: 26px;
-        width: 70px;
-        text-align:center;
-       }
-
+      }
 
     }
+
+    &__action {
+      border-right: 1px solid gray;
+      background-color: #f2f2f2;
+      display: inline-block;
+      height: 100%;
+      line-height: 26px;
+      width: 75px;
+      text-align: center;
+    }
+
+    .text-align-middle {
+      position: relative;
+      top: 3px;
+      margin-right: 5px;
+    }
+
+  }
+}
+
+@media screen and (min-width: 401px) {
+  .about-product {
+
+    .section-title {
+
+      &__heading {
+        font-size: 40px;
+        width: 380px;
+      }
+
+      &__description {
+        padding-top: 54px;
+        font-size: 16px;
+      }
+
+    }
+
+    .github-links {
+      width: 376px;
+      flex-wrap: nowrap;
+      justify-content: space-between;
+      padding-top: 18px;
+      padding-bottom: 78px;
+    }
+  }
+}
+
+@media screen and (min-width: 481px) {
+  .about-product {
+
+    .section-title {
+
+      &__heading {
+        padding-top: 132px;
+        font-size: 40px;
+        width: 100%;
+      }
+
+      &__description {
+        padding-top: 38px;
+        font-size: 20px;
+      }
+
+    }
+
+    .github-links {
+      width: 376px;
+      flex-wrap: nowrap;
+      justify-content: space-between;
+      padding-top: 16px;
+      padding-bottom: 98px;
+    }
+  }
+}
+
+@media screen and (min-width: 993px) {
+  .about-product {
+
+    .section-title {
+
+      &__heading {
+        font-size: 50px;
+        padding-top: 105px;
+      }
+
+      &__description {
+        max-width: 910px;
+      }
+
+    }
+
+    .github-links {
+      padding-bottom: 70px;
+    }
+  }
 }
