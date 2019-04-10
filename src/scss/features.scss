@@ -1,4 +1,4 @@
-features {
+.features {
   min-width: 320px;
   width: 100%;
   background-color: #f4f4f4;
@@ -32,7 +32,7 @@ features {
   padding-bottom: 30px;
 }
 
-h3 {
+.feature-item__title {
   font-family: 'Montserrat', sans-serif;
   color: #323232;
   font-size: 16px;
@@ -241,7 +241,7 @@ h3 {
     width: 100%;
   }
 
-  h3 {
+  .feature-item__title {
     text-align: left;
   }
 
@@ -391,16 +391,22 @@ h3 {
 @media screen and (min-width: 993px) {
   .features {
     width: 100%;
+    max-width: 1200px;
+    overflow: hidden;
   }
 
   .carousel {
     width: 100%;
     /*margin: 0 auto;*/
   }
-
-  .section-carousel .container {
+  .features .container {
+    display: flex;
+    margin: 0 auto;
     width: 100%;
     margin: 65px auto 20px;
+  }
+  .section-carousel .container {
+    width: 100%;
     DISPLAY: FLEX;
     max-width: 1200px;
   }
