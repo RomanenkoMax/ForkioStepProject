@@ -12,6 +12,12 @@ const pngquant = require('imagemin-pngquant');
 const gulpSequence = require('gulp-sequence');
 const autoprefixer = require('gulp-autoprefixer');
 
+gulp.task('copy-plugins',()=>{
+    return gulp.src('./src/plugins/**/*')
+        .pipe(gulp.dest('./build/plugins/'));
+});
+
+
 gulp.task('clean-css', ()=> {
     return gulp.src('./src/css/', {read: false})
         .pipe(clean());
@@ -63,7 +69,7 @@ gulp.task('copy-css', ['minify-css'], () => {
         .pipe(gulp.dest('./build/css/'))
 });
 
-gulp.task("srv", ["copy-css","js",'img'], function() {
+gulp.task("srv", ["copy-css","js",'img', 'copy-plugins'], function() {
     browserSync.init({
         server: "./"
     });
