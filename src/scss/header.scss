@@ -12,7 +12,7 @@ $font-montserrat: 'Montserrat', sans-serif;
 .header {
   margin: 0 auto;
   min-width: 320px;
-  width: 100vw;
+  width: 100%;
 
   .container {
     margin: 0 auto;
@@ -48,6 +48,7 @@ $font-montserrat: 'Montserrat', sans-serif;
 
   &__burger-menu:hover + .menu {
     right: 0;
+    z-index: 999;
   }
 
   .logo__logo-img {
@@ -95,11 +96,20 @@ $font-montserrat: 'Montserrat', sans-serif;
 
     &__flex-wrapper {
       flex-direction: row-reverse;
-      justify-content: start;
+      justify-content: flex-start;
     }
 
     .logo__logo-img {
       margin-left: 10px;
+    }
+
+    .container {
+      height: 86px;
+    }
+  }
+  @media screen and (min-width: 993px) {
+    .container {
+      height: 100px;
     }
   }
 
