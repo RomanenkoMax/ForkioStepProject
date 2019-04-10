@@ -401,15 +401,21 @@
   }
   .features .container {
     display: flex;
-    margin: 0 auto;
+
     width: 100%;
     margin: 65px auto 20px;
   }
-  .section-carousel .container {
-    width: 100%;
-    DISPLAY: FLEX;
+  .section-carousel {
     max-width: 1200px;
+
+    .container {
+      width: 100%;
+      display: flex;
+      margin: 0 auto;
+    }
+
   }
+
 
   .features-list {
     FLEX: 0 0 40%;
